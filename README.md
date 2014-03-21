@@ -1,20 +1,34 @@
-## Node Express Mongoose
+Mobile Tracker Server
+=========
 
-A boilerplate application for building web apps using express, mongoose and passport.
+Mobile Tracker es una applicación que escanea las señales wifi que están cerca del sensor, detectando así los dispositivos móviles que se encuentran dentro de su rango.
 
-Read the [wiki](https://github.com/madhums/node-express-mongoose/wiki) to understand how the application is structured.
+El servidor es el encargado de recibir los datos del sensor y mostrar la información al estilo de Google Analytics.
 
-## Usage
 
-Clone this repository
+Version
+----
 
-    $ npm install
-    $ npm start
+1.0
 
-Add routes (`config/routes.js`), create models (`app/models/`), views (`app/views/`) and controllers (`app/controllers/`).
+Tech
+-----------
 
-Checkout the [apps that are built using this approach](https://github.com/madhums/node-express-mongoose/wiki/Apps-built-using-this-approach)
+Necesitas instalar Node.js, Mongo-db y npm para poder ejecutar el servidor.
 
-## License
+Installation
+--------------
+
+```sh
+npm install
+npm start
+```
+License
+----
 
 MIT
+
+
+**Free Software, Hell Yeah!**
+
+[@jjbachiller]:http://twitter.com/jjbachiller
