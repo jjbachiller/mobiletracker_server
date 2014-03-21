@@ -1,0 +1,61 @@
+extends ../layouts/default
+
+block main
+  aside.visible-desktop
+    p
+    ul.sideMenu
+      li
+        i.icon-file
+        =" Custom reports"    
+        span="3"
+      li.active
+        i.icon-calendar
+        =" Dashboard"
+      li
+        i.icon-time
+        =" Real time"
+block content
+  .row-fluid
+    .span12
+      h2.pull-left="Visitas de " + shop.name   
+      .pull-right
+        include ../datespicker/datespicker.jade  
+  .row-fluid
+    .span12
+      .tabbable.widget
+        ul.nav.nav-tabs
+          li.active
+            a(data-toggle="tab" href="#tab1")="Summary"
+        .tab-content
+          #tab1.tab-pane.active
+            select(id="mainSerie")
+            =" frente a "
+            select(id="secondarySerie")
+            #units.btn-group.pull-right.mrg-btm10(data-toggle="buttons-radio")
+              ul#units_list
+            #placeholder(style="width: 100%; height: 260px; padding: 0px; position: relative;")
+            #total_visits.well.well-small
+              span#all_visits=total_visits
+              =" clientes visitaron la tienda."
+            #repeatedvisitor.repeated
+            #clear(style='clear:both')
+            #repeatedcomparedvisitor.repeated 
+            script(type='text/javascript').
+              var shop = !{JSON.stringify(shop)};
+              var default_to = $.datepicker.parseDate(date_format, !{JSON.stringify(start)});
+              var default_from = $.datepicker.parseDate(date_format, !{JSON.stringify(end)});
+              var series =!{JSON.stringify(series)};
+              var repeated = !{JSON.stringify(repeated)};
+              var total_visits = !{JSON.stringify(total_visits)};
+              var presented_series = new Array();
+              
+              var datespicker_callback = function(to, from, compare_to, compare_from, is_comparing) {
+                //Petición por post para actualizar la gráfica con las flechas   
+                $.post('/dashboard/update/'+shop._id, {start: to, end: from, c_start: compare_to, c_end: compare_from, comparing: is_comparing}, function(data) {
+                  series = data.series;
+                  repeated = data.repeated;
+                  total_visits = data.total_visits;                  
+                  $.updateChart();
+                  $.updatePies();
+                });
+              };        

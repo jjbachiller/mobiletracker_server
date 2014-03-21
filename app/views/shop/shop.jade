@@ -1,0 +1,17 @@
+
+
+- if (shop)
+  .shop
+    h3
+      a(href="/shops/" + shop._id)=shop.name
+    p=shop.addr + " Tfno: " + shop.phone
+    p
+      br
+      h3 Sensores
+        ol
+        - each sensor in shop.sensors
+          li="Secret: "+sensor.sec
+      br
+      a(href="/dashboard/" + shop._id) Dashboard
+      br
+      a(href="/shops/" + shop._id + "/new") Crear un nuevo sensor

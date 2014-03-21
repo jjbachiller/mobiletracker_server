@@ -1,0 +1,11 @@
+{
+  "name": "flot-series",
+  "version": "0.0.0",
+  "description": "library for passing series formatted to the chart library flot",
+  "main": "flot_serie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
+}

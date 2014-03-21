@@ -1,0 +1,14 @@
+extends ../layouts/default
+
+block main
+  h1= title
+
+block content
+  .row
+    p=company.name + "(CIF: " + company.cif + ")"
+    p
+      br
+      h3 Tiendas
+      - each shop in shops
+        include ./shop
+      a(href="/companies/" + company._id + "/new") Crear nueva tienda para esta empresa

@@ -1,0 +1,11 @@
+{
+  "name": "flot-series",
+  "repo": "",
+  "description": "Format data series for the chart library flot",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "main": "flot_series.js",
+  "scripts": [ "flot_serie.js" ]
+}

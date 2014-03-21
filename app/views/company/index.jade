@@ -1,0 +1,18 @@
+extends ../layouts/default
+
+block main
+  h1= title
+  
+block content
+  - if (companies.length)
+    - each company in companies
+        .company
+          h3
+            a(href='/companies/'+company._id, title=company.name) #{company.name}
+    - if (pages > 1)
+      .pagination
+        ul
+          != createPagination(pages, page)
+  - else
+    p.muted No hay empresas dadas de alta.&nbsp;
+      a(href="/companies/new") Crear una

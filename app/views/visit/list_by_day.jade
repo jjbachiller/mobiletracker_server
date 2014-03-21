@@ -1,0 +1,15 @@
+extends ../layouts/default
+
+block main
+  h1=shop.name
+
+block content
+  .row
+    h3 Visitas por día:
+    a(href="/shops/" + shop._id + "/remove") Remove today visits  
+    hr  
+    - each visit in visits 
+      a(href="/shops/" + shop._id + "/" + visit.date.day + "/" + visit.date.month + "/" + visit.date.year)=visit.date.day+" / "+visit.date.month+" / "+visit.date.year
+      &nbsp;
+      ="("+visit.count+")"
+      hr

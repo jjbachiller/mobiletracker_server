@@ -1,0 +1,30 @@
+extends ../layouts/default
+
+block main
+  h1= title
+  hr
+  
+block content
+  - var action = '/companies'
+  - action += company.isNew? '' : '/' + company.id
+  
+  .row
+      form(method="post", action=action)
+      
+        - if (!company.isNew)
+          input(type="hidden", name="_method", value="PUT")
+          
+        .control-group
+          label(for="name") Nombre
+          .controls
+            input(type="text", name="name", value=company.name, placeholder='Nombre de la empresa')
+
+        .control-group
+          label(for="cif") CIF
+          .controls
+            input(type="text", name="cif", value=company.name, placeholder='CIF de la emrpesa')
+                
+        .form-actions
+          button(type="submit") Guardar
+          &nbsp;
+          a(href='/companies', title="cancelar") Cancelar

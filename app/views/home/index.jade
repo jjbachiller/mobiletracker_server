@@ -1,0 +1,26 @@
+extends ../layouts/full
+
+block main
+  h2= title
+
+block content
+  //- Sacar a un modulo individual para cargar como un bloque???
+  block auth
+    #login-wrapper
+      img.img-circle(src="/img/teslametrics.png", width="120px", height="120px")
+      h2="Teslametrics"
+      .form-actions
+        h3="Analytics for real life"
+      form(action="/login", method="post")
+        - if (message != '')
+          p.alert.alert-error= message
+        .control-group
+          .input-prepend
+            span.add-on="@"
+            input#email.span4(type='email', name='email', placeholder='Email')
+        .control-group
+          .input-prepend
+            span.add-on="#"
+            input#password.span4(type='password', name='password', placeholder='Password')
+        .control-group
+          button.btn.btn-large.btn-block.btn-success(type='submit') Login

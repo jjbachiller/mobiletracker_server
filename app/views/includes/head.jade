@@ -1,0 +1,29 @@
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+  meta(name="viewport", content="width=device-width,initial-scale=1")
+
+  title= pkg.name + ' - ' + title
+  meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
+  meta(name="keywords", content=pkg.keywords.join(','))
+  meta(name="description", content=pkg.description)
+
+  link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
+  link(rel="stylesheet", href="/css/bootstrap.css");
+  link(rel="stylesheet", href="/css/bootstrap-responsive.css");
+  link(rel="stylesheet", href="/css/bootstrap-responsive-fluid.css");    
+  
+  link(rel="stylesheet", href="/css/prometheus.css");  
+  link(rel="stylesheet", href="/css/menu.css");  
+
+  link(rel="stylesheet", href="/css/preview.css");    
+
+  - if (css_files)
+    - each css_file in css_files
+      link(rel="stylesheet", href="#{css_file}")
+
+  script(type="text/javascript", src="/js/modernizr.js")    
+
+  - if (js_files)
+    - each js_file in js_files
+      script(type="text/javascript", charset="utf-8", src="#{js_file}")

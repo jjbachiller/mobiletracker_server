@@ -1,0 +1,19 @@
+extends ../layouts/default
+
+block main
+  h1=shop.name
+
+block content
+  .row
+    h3="Visitas por comprador entre: "+start_date+" y "+end_date
+    - each buyer in buyers
+      p=buyer.data.mac+" "+"("+buyer.count+")"
+      ol
+        - each visit in buyer.visits
+          - if (visit.into)
+            li(style='color:green')
+          - else
+            li(style='color:red')
+          a(href="/visits/" + visit._id)="De " + visit.from + " a " + visit.to
+          &nbsp;
+          strong="(Duración de la visita: " + visit.duration + ")"

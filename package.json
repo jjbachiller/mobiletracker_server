@@ -1,0 +1,44 @@
+{
+  "name": "Teslametrics",
+  "description": "Analytics for the real life",
+  "version": "0.0.1",
+  "author": {
+    "name": "Juan Bachiller",
+    "email": "jjbachiller@gmail.com"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "scripts": {
+    "start": "NODE_PATH=./app/controllers NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "test": "make test"
+  },
+  "dependencies": {
+    "express": "latest",
+    "express-namespace": "latest",
+    "mongoose": "latest",
+    "mongoose-user": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "connect-mongo": "latest",
+    "connect-flash": "latest",
+    "view-helpers": "latest",
+    "jade": "latest",
+    "async": "latest",
+    "forever": "latest",
+    "moment": "latest",
+    "async": "latest",
+    "extend": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest",
+    "mocha": "latest",
+    "should": "latest",
+    "supertest": "latest"
+  },
+  "keywords": [
+    "mvc",
+    "boilerplate"
+  ]
+}

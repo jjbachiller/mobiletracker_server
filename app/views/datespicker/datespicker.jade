@@ -1,0 +1,41 @@
+#input_dates
+  #dates_summary
+  #dates_control(class='low')&nbsp;
+.clear
+#analytics_date_selector
+  #date_picker(class="datepicker")
+  #date_form
+    form(method="POST" action="/")
+      #select_main_dates(class="dates_select") Periodo:
+        select(id="selected_period" class="custom dropdown medium")
+          option(value='0') Personalizado
+          option(value='1') Hoy
+          option(value='2') Ayer
+          option(value='3') La semana pasada
+          option(value='4') El mes pasado
+
+        #main_dates(class="dates_container")
+          input(type="text" id="input_to" class="date_text highlight-text1 focus" size="10")
+          input(type="hidden" id="input_to_hidden")
+          -
+          input(type="text" id="input_from" class="date_text highlight-text1" size="10")
+          input(type="hidden" id="input_from_hidden")
+            
+        #select_compared_dates(class="dates_select")
+          input(type="checkbox" name="compare_to" id="compare_to")
+          Compare to:
+          select(id="compared_period" disabled)
+            option(value='0') Personalizado
+            option(value='1' selected="selected") Periodo anterior
+            option(value='2') Año anterior
+
+        #compared_dates(class="dates_container")
+          input(type="text" id="input_compare_to" class="date_text highlight-text2" size="10")
+          input(type="hidden" id="input_compare_to_hidden")
+          -
+          input(type="text" id="input_compare_from" class="date_text highlight-text2" size="10")
+          input(type="hidden" id="input_compare_from_hidden")
+      hr
+      input(type="button" id="submitDates" name="aplicar" value="Aplicar" onClick="submitUpdate();")
+      a(href="#" id="cancelUpdate") Cancelar
+.clear

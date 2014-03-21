@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block main
+  h1="Visita de " + visit.from + " a " + visit.to + "(" + visit.duration + ")"
+  
+block content
+  .row
+    h3 Detalle de RSSIs recibidas:
+    ul
+    - each rssi in rssis
+     li
+      p="Intensidad: " + rssi.rssi + " momentum: " + rssi.ts

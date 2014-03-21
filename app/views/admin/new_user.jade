@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block main
+  h2= title
+
+block content
+  //- Sacar a un modulo individual para cargar como un bloque???
+  block auth
+    form(action="/admin/create/user", method="post")
+      p.error= message
+      
+      .control-group
+        label(form='name') Full name
+        .controls
+          input#name(type='text', name="name", placeholder='Full name', value=user.name)
+      
+      .control-group
+        label(for='email') Email
+        .controls
+          input#email(type='email', name='email', placeholder='Email', value=user.email)
+          
+      .control-group
+        label.control-label(for='password') Password
+        .controls
+          input#password(type='password', name='password', placeholder='Password')
+          
+      .form-actions
+        button(type='submit') Crear

@@ -1,0 +1,34 @@
+extends ../layouts/default
+
+block main
+  h1= title
+  hr
+  
+block content
+  - var action = shop.isNew? '/companies/' + shop.company : '/shops/' + shop._id + '/edit'
+  
+  .row
+    form(method="post", action=action)
+    
+      - if (!shop.isNew)
+        input(type="hidden", name="_method", value="PUT")
+        
+      .control-group
+        label(for="name") Nombre
+        .controls
+          input(type="text", name="name", value=shop.name, placeholder="Nombre de la tienda")
+          
+      .control-group
+        label(for="addr") Dirección
+        .controls
+          input(type="text", name="addr", value=shop.name, placeholder="Dirección")
+          
+      .control-group
+        label(for="phone") Teléfono
+        .controls
+          input(type="text", name="phone", value=shop.name, placeholder="Teléfono")
+      
+      .form-actions
+        button(type="submit") Guardar
+        &nbsp;
+        a(href="/companies/" + shop.company) Cancelar

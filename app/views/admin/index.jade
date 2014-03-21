@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block main
+  h2= title
+
+block content
+  p.error= message
+  
+  block actions
+    h3 Acciones
+    ul
+      li
+        a(href="/admin/new/user") Crear un nuevo usuario
+      li
+        a(href="/companies") Ver el listado de empresas
+    
